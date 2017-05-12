@@ -26,7 +26,7 @@ import javax.inject.Singleton
 class NetModule {
 
     companion object {
-        private val DATE_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss")
+        private val DATE_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ssZ")
     }
 
     @Provides
