@@ -17,7 +17,7 @@ class RepoRowViewModel(val repo: Repo) : BaseViewModel(), RowViewModel<RepoRowVi
     override var viewAccess: RepoRowViewAccess? = null
 
     fun onClick() {
-
+        viewAccess?.openDetails()
     }
 
 }

@@ -3,4 +3,8 @@
 
     <string name="repos_title">Google Repos</string>
     <string name="repos_fetch_error">Cannot fetch repos</string>
+
+    <string name="repo_details_title">Repo Details</string>
+    <string name="repo_details_author">"Author: "</string>
+    <string name="repo_details_created_at">"Created at: "</string>
 </resources>

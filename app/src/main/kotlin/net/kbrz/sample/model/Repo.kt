@@ -17,7 +17,6 @@ data class Repo(
         @SerializedName("owner") val owner: Owner? = null,
         @SerializedName("name") val name: String? = null,
         @SerializedName("description") val description: String? = null,
-        @SerializedName("topics") val topics: List<String?>? = null,
         @SerializedName("created_at") val createdAt: DateTime? = null
 ) : Parcelable {
 

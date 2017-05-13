@@ -1,10 +1,12 @@
 package net.kbrz.sample.di.component
 
 import dagger.Component
+import net.kbrz.sample.di.component.view.RepoDetailsComponent
 import net.kbrz.sample.di.component.view.ReposComponent
 import net.kbrz.sample.di.module.ApiModule
 import net.kbrz.sample.di.module.AppModule
 import net.kbrz.sample.di.module.NetModule
+import net.kbrz.sample.di.module.view.RepoDetailsModule
 import net.kbrz.sample.di.module.view.ReposModule
 import javax.inject.Singleton
 
@@ -22,5 +24,6 @@ import javax.inject.Singleton
 interface AppComponent {
 
     fun add(reposModule: ReposModule): ReposComponent
+    fun add(repoDetailsModule: RepoDetailsModule): RepoDetailsComponent
 
 }

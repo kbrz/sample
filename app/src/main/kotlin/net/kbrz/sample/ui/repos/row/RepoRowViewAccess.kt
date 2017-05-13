@@ -7,4 +7,8 @@ import net.kbrz.sample.ui.base.ViewAccess
  * @since 13.05.2017
  */
 
-interface RepoRowViewAccess : ViewAccess
+interface RepoRowViewAccess : ViewAccess {
+
+    fun openDetails()
+
+}

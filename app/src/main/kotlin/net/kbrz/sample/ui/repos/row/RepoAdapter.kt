@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import net.kbrz.sample.R
 import net.kbrz.sample.databinding.RowRepoBinding
+import net.kbrz.sample.ui.repo.createRepoDetailsIntent
 import net.kbrz.sample.ui.repos.ReposActivity
 
 /**
@@ -45,6 +46,11 @@ class RepoAdapter(private val context: ReposActivity) : RecyclerView.Adapter<Rep
             model.viewAccess = this
             binding.model = model
             binding.executePendingBindings()
+        }
+
+        override fun openDetails() {
+            val repo = models[adapterPosition].repo
+            context.startActivity(createRepoDetailsIntent(context, repo))
         }
 
     }
