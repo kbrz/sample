@@ -1,7 +1,5 @@
 package net.kbrz.sample.rx
 
-import io.reactivex.Scheduler
-
 /**
  * @author Konrad Brzykcy
  * @since 12.05.17

@@ -1,8 +1,8 @@
 package net.kbrz.sample.rx
 
 import io.reactivex.Scheduler
-import io.reactivex.schedulers.Schedulers
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 /**
  * @author Konrad Brzykcy
