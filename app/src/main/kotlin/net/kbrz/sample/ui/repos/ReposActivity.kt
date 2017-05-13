@@ -38,7 +38,7 @@ class ReposActivity : BaseActivity(), ReposViewAccess, RepoViewDataProvider {
 
         setSupportActionBar(binding.toolbar)
 
-        model.initializa(getString(R.string.repos_title))
+        model.initialize(getString(R.string.repos_title))
     }
 
     //region ReposViewAccess

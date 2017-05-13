@@ -11,13 +11,8 @@ import io.reactivex.schedulers.Schedulers
 
 class SchedulersWrapperImpl : SchedulersWrapper {
 
-    override val io: Scheduler
-        get() = Schedulers.io()
-
-    override val mainThread: Scheduler
-        get() = AndroidSchedulers.mainThread()
-
-    override val computation: Scheduler
-        get() = Schedulers.computation()
+    override val io: Scheduler = Schedulers.io()
+    override val mainThread: Scheduler = AndroidSchedulers.mainThread()
+    override val computation: Scheduler = Schedulers.computation()
 
 }
