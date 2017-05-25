@@ -28,7 +28,7 @@ class RepoDetailsViewModel : BaseViewModel() {
         initialized = true
         this.title.set(title)
         name.set(repo.name)
-        description.set(repo.description)
+        description.set(if(repo.description.isNullOrBlank()) "No description" else repo.description)
         author.set(repo.owner?.login)
         createdAt.set(repo.createdAt?.toString(DATE_FORMAT))
     }

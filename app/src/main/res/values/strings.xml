@@ -11,4 +11,6 @@
     <string name="cd_header">Header</string>
     <string name="cd_star">Stars</string>
     <string name="cd_fork">Forks</string>
+
+    <string name="tools_lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique eu ante non dictum. Suspendisse dignissim ac justo sed aliquam. Pellentesque vel lectus auctor nulla ornare tempus.</string>
 </resources>
