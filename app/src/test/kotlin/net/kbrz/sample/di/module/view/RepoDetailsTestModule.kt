@@ -24,8 +24,9 @@ class RepoDetailsTestModule {
 
     @Provides
     @ActivityScope
-    internal fun provideRepoDetailsViewModel(): RepoDetailsViewModel {
-        return RepoDetailsViewModel()
+    internal fun provideRepoDetailsViewModel(viewAccess: RepoDetailsViewAccess): RepoDetailsViewModel {
+        val viewModel = RepoDetailsViewModel()
+        return viewModel
     }
 
 }

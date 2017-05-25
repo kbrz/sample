@@ -54,9 +54,10 @@ class ReposViewModelTest {
     @Test
     @Throws(Exception::class)
     fun handleReposFetchSuccess() {
-        val repos = listOf<RepoRowViewModel>()
+        val repos = listOf<RepoRowViewModel>(mock())
 
         model.handleReposFetchSuccess(repos)
+        expect(1) { model.models.size }
         verify(model.viewAccess).notifyReposChanged()
     }
 
