@@ -2,7 +2,7 @@
 
 buildscript {
     ext {
-        kotlinVersion = '1.1.1'
+        kotlinVersion = '1.1.2-3'
         gradlePluginVersion = '2.3.0'
     }
 
@@ -20,6 +20,7 @@ allprojects {
     repositories {
         jcenter()
         mavenCentral()
+        maven { url 'https://maven.google.com' }
     }
 }
 
