@@ -5,6 +5,7 @@ import dagger.Module
 import dagger.Provides
 import net.kbrz.sample.di.scope.ActivityScope
 import net.kbrz.sample.ui.repos.ReposViewAccess
+import net.kbrz.sample.ui.repos.ReposViewModel
 import net.kbrz.sample.ui.repos.row.RepoAdapter
 
 /**
@@ -26,6 +27,12 @@ class ReposTestModule {
     @ActivityScope
     internal fun provideRepoAdapter(): RepoAdapter {
         return mock()
+    }
+
+    @Provides
+    @ActivityScope
+    internal fun provideReposViewModel(): ReposViewModel {
+        return ReposViewModel()
     }
 
 }

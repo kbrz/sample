@@ -11,7 +11,6 @@ import net.kbrz.sample.databinding.ActivityReposBinding
 import net.kbrz.sample.di.module.view.ReposModule
 import net.kbrz.sample.ui.base.BaseActivity
 import net.kbrz.sample.ui.repos.row.RepoAdapter
-import net.kbrz.sample.ui.repos.row.RepoRowViewModel
 import javax.inject.Inject
 
 /**
@@ -34,16 +33,13 @@ class ReposActivity : BaseActivity(), ReposViewAccess, RepoViewDataProvider {
         binding.model = model
         binding.data = this
 
-        registerModel(model)
-
         setSupportActionBar(binding.toolbar)
 
         model.initialize(getString(R.string.repos_title))
     }
 
-    //region ReposViewAccess
-    override fun refillList(repos: List<RepoRowViewModel>) {
-        adapter.refill(repos)
+    override fun notifyReposChanged() {
+        adapter.notifyDataSetChanged()
     }
 
     override fun showErrorMessage() {

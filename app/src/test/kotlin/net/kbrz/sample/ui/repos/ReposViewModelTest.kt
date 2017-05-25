@@ -57,7 +57,7 @@ class ReposViewModelTest {
         val repos = listOf<RepoRowViewModel>()
 
         model.handleReposFetchSuccess(repos)
-        verify(model.viewAccess).refillList(repos)
+        verify(model.viewAccess).notifyReposChanged()
     }
 
     @Test

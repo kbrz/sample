@@ -2,36 +2,40 @@ package net.kbrz.sample.ui.repos
 
 import android.databinding.ObservableBoolean
 import io.reactivex.Observable
-import net.kbrz.sample.di.scope.ActivityScope
 import net.kbrz.sample.net.GithubApi
 import net.kbrz.sample.rx.SchedulersWrapper
 import net.kbrz.sample.ui.base.BaseViewModel
 import net.kbrz.sample.ui.repos.row.RepoRowViewModel
 import net.kbrz.sample.util.ObservableString
 import net.kbrz.sample.util.addTo
-import javax.inject.Inject
 
 /**
  * @author Konrad Brzykcy
  * @since 13.05.2017
  */
 
-@ActivityScope
-class ReposViewModel @Inject constructor() : BaseViewModel() {
+class ReposViewModel : BaseViewModel() {
 
     val title = ObservableString()
     val refreshing = ObservableBoolean()
 
-    @Inject
     lateinit var viewAccess: ReposViewAccess
-
-    @Inject
     lateinit var githubApi: GithubApi
-
-    @Inject
     lateinit var schedulers: SchedulersWrapper
 
+    var models = mutableListOf<RepoRowViewModel>()
+
+    fun inject(viewAccess: ReposViewAccess, githubApi: GithubApi, schedulers: SchedulersWrapper) {
+        this.viewAccess = viewAccess
+        this.githubApi = githubApi
+        this.schedulers = schedulers
+    }
+
     fun initialize(title: String) {
+        if (initialized) {
+            return
+        }
+        initialized = true
         this.title.set(title)
         fetchRepos()
     }
@@ -48,11 +52,12 @@ class ReposViewModel @Inject constructor() : BaseViewModel() {
                 .doFinally { refreshing.set(false) }
                 .observeOn(schedulers.mainThread)
                 .subscribe(this::handleReposFetchSuccess, this::handleReposFetchError)
-                .addTo(dispossableBag)
+                .addTo(disposableBag)
     }
 
     internal fun handleReposFetchSuccess(repos: List<RepoRowViewModel>) {
-        viewAccess.refillList(repos)
+        models.addAll(repos)
+        viewAccess.notifyReposChanged()
     }
 
     internal fun handleReposFetchError(throwable: Throwable?) {

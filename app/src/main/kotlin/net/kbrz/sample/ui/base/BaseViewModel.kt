@@ -1,5 +1,6 @@
 package net.kbrz.sample.ui.base
 
+import android.arch.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
 
 /**
@@ -7,12 +8,14 @@ import io.reactivex.disposables.CompositeDisposable
  * @since 13.05.2017
  */
 
-open class BaseViewModel {
+open class BaseViewModel : ViewModel() {
 
-    protected val dispossableBag = CompositeDisposable()
+    protected val disposableBag = CompositeDisposable()
+    protected var initialized = false
 
-    fun onDestroy() {
-        dispossableBag.clear()
+    override fun onCleared() {
+        super.onCleared()
+        disposableBag.clear()
     }
 
 }

@@ -1,18 +1,15 @@
 package net.kbrz.sample.ui.repo
 
-import net.kbrz.sample.di.scope.ActivityScope
 import net.kbrz.sample.model.Repo
 import net.kbrz.sample.ui.base.BaseViewModel
 import net.kbrz.sample.util.ObservableString
-import javax.inject.Inject
 
 /**
  * @author Konrad Brzykcy
  * @since 13.05.2017
  */
 
-@ActivityScope
-class RepoDetailsViewModel @Inject constructor() : BaseViewModel() {
+class RepoDetailsViewModel : BaseViewModel() {
 
     companion object {
         val DATE_FORMAT = "dd.MM.yyyy"
@@ -25,6 +22,10 @@ class RepoDetailsViewModel @Inject constructor() : BaseViewModel() {
     val createdAt = ObservableString()
 
     fun initialize(title: String, repo: Repo) {
+        if (initialized) {
+            return
+        }
+        initialized = true
         this.title.set(title)
         name.set(repo.name)
         description.set(repo.description)

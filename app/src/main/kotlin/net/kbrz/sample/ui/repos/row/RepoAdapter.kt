@@ -14,9 +14,7 @@ import net.kbrz.sample.ui.repos.ReposActivity
  * @since 13.05.2017
  */
 
-class RepoAdapter(private val context: ReposActivity) : RecyclerView.Adapter<RepoAdapter.RepoViewHolder>() {
-
-    private val models = mutableListOf<RepoRowViewModel>()
+class RepoAdapter(private val context: ReposActivity, private val models: MutableList<RepoRowViewModel>) : RecyclerView.Adapter<RepoAdapter.RepoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RepoViewHolder {
         val inflater = LayoutInflater.from(context)
@@ -30,12 +28,6 @@ class RepoAdapter(private val context: ReposActivity) : RecyclerView.Adapter<Rep
 
     override fun onBindViewHolder(holder: RepoViewHolder, position: Int) {
         holder.bind(models[position])
-    }
-
-    fun refill(repos: List<RepoRowViewModel>) {
-        models.clear()
-        models.addAll(repos)
-        notifyDataSetChanged()
     }
 
     inner class RepoViewHolder(private val binding: RowRepoBinding)

@@ -37,8 +37,6 @@ class RepoDetailsActivity : BaseActivity(), RepoDetailsViewAccess {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_repo_details)
         binding.model = model
 
-        registerModel(model)
-
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 

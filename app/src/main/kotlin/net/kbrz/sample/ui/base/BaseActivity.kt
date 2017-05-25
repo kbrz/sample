@@ -10,19 +10,7 @@ import net.kbrz.sample.GithubApplication
 
 open class BaseActivity : AppCompatActivity() {
 
-    protected val githubApplication: GithubApplication
+    val githubApplication: GithubApplication
         get() = applicationContext as GithubApplication
-
-    private val registeredModels = mutableListOf<BaseViewModel>()
-
-    protected fun registerModel(viewModel: BaseViewModel) {
-        registeredModels.add(viewModel)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        registeredModels.forEach(BaseViewModel::onDestroy)
-        registeredModels.clear()
-    }
 
 }
