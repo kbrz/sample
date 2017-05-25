@@ -1,5 +1,6 @@
 package net.kbrz.sample.ui.repos.row
 
+import android.databinding.ObservableInt
 import net.kbrz.sample.model.Repo
 import net.kbrz.sample.ui.base.RowViewModel
 import net.kbrz.sample.util.ObservableString
@@ -12,6 +13,9 @@ import net.kbrz.sample.util.ObservableString
 class RepoRowViewModel(val repo: Repo) : RowViewModel<RepoRowViewAccess?> {
 
     val repoName = ObservableString(repo.name)
+    val language = ObservableString(repo.language)
+    val starsCount = ObservableInt(repo.stars ?: 0)
+    val forksCount = ObservableInt(repo.forks ?: 0)
 
     override var viewAccess: RepoRowViewAccess? = null
 

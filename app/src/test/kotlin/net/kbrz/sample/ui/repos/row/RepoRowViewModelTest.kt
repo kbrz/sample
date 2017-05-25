@@ -19,14 +19,17 @@ class RepoRowViewModelTest {
     @Before
     @Throws(Exception::class)
     fun setUp() {
-        model = RepoRowViewModel(Repo(name = "test_name"))
+        model = RepoRowViewModel(buildRepo())
         model.viewAccess = mock()
     }
 
     @Test
     @Throws(Exception::class)
     fun initialize() {
-        expect("test_name") { model.repoName.get() }
+        expect("repo_name") { model.repoName.get() }
+        expect("repo_language") { model.language.get() }
+        expect(7) { model.starsCount.get() }
+        expect(8) { model.forksCount.get() }
     }
 
     @Test
@@ -35,5 +38,12 @@ class RepoRowViewModelTest {
         model.onClick()
         verify(model.viewAccess)!!.openDetails()
     }
+
+    fun buildRepo() = Repo(
+            name = "repo_name",
+            language = "repo_language",
+            stars = 7,
+            forks = 8
+    )
 
 }

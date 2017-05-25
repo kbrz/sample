@@ -2,6 +2,7 @@ package net.kbrz.sample.util
 
 import android.databinding.BindingAdapter
 import android.widget.ImageView
+import android.widget.TextView
 import net.kbrz.sample.R
 
 /**
@@ -21,4 +22,9 @@ fun setRepoDetailsHeader(imageView: ImageView, repoName: String) {
         else -> R.drawable.details_bar_bg_1
     }
     imageView.setImageResource(headerDrawableId)
+}
+
+@BindingAdapter("intText")
+fun setIntegerAsText(textView: TextView, text: Int) {
+    textView.text = text.toString()
 }

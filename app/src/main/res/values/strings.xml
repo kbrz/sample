@@ -9,4 +9,6 @@
     <string name="repo_details_created_at">"Created at: "</string>
 
     <string name="cd_header">Header</string>
+    <string name="cd_star">Stars</string>
+    <string name="cd_fork">Forks</string>
 </resources>
