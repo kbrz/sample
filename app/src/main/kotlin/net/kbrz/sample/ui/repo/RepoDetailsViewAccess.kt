@@ -7,5 +7,4 @@ import net.kbrz.sample.ui.base.ViewAccess
  * @since 13.05.2017
  */
 
-interface RepoDetailsViewAccess : ViewAccess {
-}
+interface RepoDetailsViewAccess : ViewAccess

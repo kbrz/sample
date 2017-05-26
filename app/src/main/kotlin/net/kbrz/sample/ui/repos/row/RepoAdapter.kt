@@ -22,13 +22,9 @@ class RepoAdapter(private val context: ReposActivity, private val models: Mutabl
         return RepoViewHolder(binding)
     }
 
-    override fun getItemCount(): Int {
-        return models.size
-    }
+    override fun getItemCount() = models.size
 
-    override fun onBindViewHolder(holder: RepoViewHolder, position: Int) {
-        holder.bind(models[position])
-    }
+    override fun onBindViewHolder(holder: RepoViewHolder, position: Int) = holder.bind(models[position])
 
     inner class RepoViewHolder(private val binding: RowRepoBinding)
         : RecyclerView.ViewHolder(binding.root),

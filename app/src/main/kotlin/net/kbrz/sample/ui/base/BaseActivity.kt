@@ -10,7 +10,6 @@ import net.kbrz.sample.GithubApplication
 
 open class BaseActivity : AppCompatActivity() {
 
-    val githubApplication: GithubApplication
-        get() = applicationContext as GithubApplication
+    val githubApplication = applicationContext as GithubApplication
 
 }

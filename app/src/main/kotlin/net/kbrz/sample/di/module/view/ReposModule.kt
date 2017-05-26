@@ -22,9 +22,7 @@ class ReposModule(val reposActivity: ReposActivity) {
 
     @Provides
     @ActivityScope
-    internal fun provideReposViewAccess(): ReposViewAccess {
-        return reposActivity
-    }
+    internal fun provideReposViewAccess(): ReposViewAccess = reposActivity
 
     @Provides
     @ActivityScope
@@ -36,8 +34,6 @@ class ReposModule(val reposActivity: ReposActivity) {
 
     @Provides
     @ActivityScope
-    internal fun provideRepoAdapter(reposViewModel: ReposViewModel): RepoAdapter {
-        return RepoAdapter(reposActivity, reposViewModel.models)
-    }
+    internal fun provideRepoAdapter(reposViewModel: ReposViewModel): RepoAdapter = RepoAdapter(reposActivity, reposViewModel.models)
 
 }

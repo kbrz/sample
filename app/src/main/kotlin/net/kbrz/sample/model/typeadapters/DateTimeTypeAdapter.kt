@@ -11,12 +11,8 @@ import paperparcel.TypeAdapter
 
 object DateTimeTypeAdapter : TypeAdapter<DateTime> {
 
-    override fun writeToParcel(value: DateTime, outParcel: Parcel, flags: Int) {
-        outParcel.writeLong(value.millis)
-    }
+    override fun writeToParcel(value: DateTime, outParcel: Parcel, flags: Int) = outParcel.writeLong(value.millis)
 
-    override fun readFromParcel(inParcel: Parcel): DateTime {
-        return DateTime(inParcel.readLong())
-    }
+    override fun readFromParcel(inParcel: Parcel) = DateTime(inParcel.readLong())
 
 }

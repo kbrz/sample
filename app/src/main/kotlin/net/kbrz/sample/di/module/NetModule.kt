@@ -31,38 +31,30 @@ class NetModule {
 
     @Provides
     @Singleton
-    internal fun provideOkHttp(): OkHttpClient {
-        return OkHttpClient.Builder()
+    internal fun provideOkHttp(): OkHttpClient = OkHttpClient.Builder()
                 .addInterceptor(HttpLoggingInterceptor().apply {
                     level = HttpLoggingInterceptor.Level.BODY
                 })
                 .build()
-    }
 
     @Provides
     @Singleton
-    internal fun provideGson(): Gson {
-        return GsonBuilder()
+    internal fun provideGson(): Gson = GsonBuilder()
                 .registerTypeAdapter(DateTime::class.java, DateTimeTypeConverter())
                 .create()
-    }
 
     @Provides
     @Singleton
-    internal fun provideRetrofit(gson: Gson, okHttp: OkHttpClient): Retrofit {
-        return Retrofit.Builder()
+    internal fun provideRetrofit(gson: Gson, okHttp: OkHttpClient): Retrofit = Retrofit.Builder()
                 .baseUrl(BuildConfig.BASE_URL)
                 .client(okHttp)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
-    }
 
     @Provides
     @Singleton
-    internal fun provideSchedulersWrapper(): SchedulersWrapper {
-        return SchedulersWrapperImpl()
-    }
+    internal fun provideSchedulersWrapper(): SchedulersWrapper = SchedulersWrapperImpl()
 
     internal inner class DateTimeTypeConverter : JsonSerializer<DateTime>, JsonDeserializer<DateTime> {
         override fun serialize(src: DateTime, srcType: Type, context: JsonSerializationContext): JsonElement {

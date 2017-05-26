@@ -19,9 +19,7 @@ class RepoDetailsModule(val repoDetailsActivity: RepoDetailsActivity) {
 
     @Provides
     @ActivityScope
-    internal fun provideRepoDetailsViewAccess(): RepoDetailsViewAccess {
-        return repoDetailsActivity
-    }
+    internal fun provideRepoDetailsViewAccess(): RepoDetailsViewAccess = repoDetailsActivity
 
     @Provides
     @ActivityScope

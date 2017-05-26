@@ -17,8 +17,6 @@ class ApiModule {
 
     @Provides
     @Singleton
-    internal fun provideGithubApi(retrofit: Retrofit): GithubApi {
-        return retrofit.create(GithubApi::class.java)
-    }
+    internal fun provideGithubApi(retrofit: Retrofit): GithubApi = retrofit.create(GithubApi::class.java)
 
 }
