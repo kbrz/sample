@@ -18,7 +18,7 @@ import net.kbrz.sample.ui.repos.row.RepoAdapter
 
 @Module
 @ActivityScope
-class ReposModule(val reposActivity: ReposActivity) {
+class ReposModule(private val reposActivity: ReposActivity) {
 
     @Provides
     @ActivityScope
@@ -26,9 +26,9 @@ class ReposModule(val reposActivity: ReposActivity) {
 
     @Provides
     @ActivityScope
-    internal fun provideReposViewModel(githubApi: GithubApi, schedulers: SchedulersWrapper): ReposViewModel {
+    internal fun provideReposViewModel(viewAccess: ReposViewAccess, githubApi: GithubApi, schedulers: SchedulersWrapper): ReposViewModel {
         val viewModel = ViewModelProviders.of(reposActivity).get(ReposViewModel::class.java)
-        viewModel.inject(reposActivity, githubApi, schedulers)
+        viewModel.inject(viewAccess, githubApi, schedulers)
         return viewModel
     }
 

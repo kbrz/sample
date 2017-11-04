@@ -15,7 +15,7 @@ import net.kbrz.sample.ui.repo.RepoDetailsViewModel
 
 @Module
 @ActivityScope
-class RepoDetailsModule(val repoDetailsActivity: RepoDetailsActivity) {
+class RepoDetailsModule(private val repoDetailsActivity: RepoDetailsActivity) {
 
     @Provides
     @ActivityScope
